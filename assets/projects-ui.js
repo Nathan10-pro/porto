@@ -17,7 +17,6 @@
   function pad2(n) { return n < 10 ? "0" + n : "" + n; }
 
   function cardHTML(p, idx) {
-    var rarityClass = (global.RARITY_CLASS && global.RARITY_CLASS[p.rarity]) || "r-common";
     var tags = (p.tags || []).map(function (t) { return "<span>" + esc(t) + "</span>"; }).join("");
 
     /* Glyph angka SELALU dirender (dipakai tema merah). Gambar cuma
@@ -30,11 +29,12 @@
         '<div class="project-thumb">' +
           imgTag +
           '<span class="glyph">' + pad2(idx + 1) + '</span>' +
-          '<span class="project-rarity ' + rarityClass + '">' + esc(p.rarity) + '</span>' +
-          '<button class="explore-btn" data-explore><span class="q"></span>Explore Item</button>' +
+          (p.featured ? '<span class="project-featured">Featured project</span>' : "") +
+          '<button class="explore-btn" data-explore><span class="q"></span>Lihat Proses</button>' +
         '</div>' +
         '<div class="project-body">' +
           '<h3 class="project-title">' + esc(p.judul) + '</h3>' +
+          '<p class="project-status">Status: ' + esc(p.status || "Experimental") + '</p>' +
           '<p class="project-desc">' + esc(p.desc) + '</p>' +
           '<div class="project-tags">' + tags + '</div>' +
           '<div class="project-links"><a href="' + esc(p.demo || "#") + '" target="_blank" rel="noopener">Live Demo</a><a href="' + esc(p.source || "#") + '" target="_blank" rel="noopener">Source Code</a></div>' +
@@ -179,10 +179,8 @@
       if (!list.length) return;
       currentIndex = (i + list.length) % list.length;
       var p = list[currentIndex];
-      var rarityClass = (global.RARITY_CLASS && global.RARITY_CLASS[p.rarity]) || "r-common";
-
-      document.getElementById("modalRarity").textContent = p.rarity;
-      document.getElementById("modalRarity").className = "project-rarity " + rarityClass;
+      var modalRarity = document.getElementById("modalRarity");
+      if (modalRarity) modalRarity.remove();
 
       var glyphEl = document.getElementById("modalGlyph");
       if (glyphEl) glyphEl.textContent = pad2(currentIndex + 1);
@@ -220,10 +218,27 @@
 
       var combosWrap = document.getElementById("modalCombos");
       combosWrap.innerHTML = "";
-      (p.fitur || []).forEach(function (feat, idx) {
+      var story = [
+        ["Overview", p.overview],
+        ["Masalah & Motivasi", p.motivation],
+        ["Proses Pengerjaan", p.process],
+        ["Tantangan", p.challenges],
+        ["Pilihan Teknis", p.decisions],
+        ["Yang Dipelajari", p.outcomes]
+      ];
+      if (p.featured) {
+        story = story.concat([
+          ["Kontribusi Saya", p.contribution],
+          ["Bantuan AI / Pihak Lain", p.aiHelp],
+          ["Bagian yang Belum Dipahami", p.unknown],
+          ["Rencana Selanjutnya", p.next]
+        ]);
+      }
+      story.forEach(function (entry, idx) {
+        if (!entry[1]) return;
         var item = document.createElement("div");
         item.className = "combo-item";
-        item.innerHTML = '<span class="combo-ico">' + (idx + 1) + '</span><span class="txt">' + esc(feat) + '</span>';
+        item.innerHTML = '<span class="combo-ico">' + (idx + 1) + '</span><span class="txt"><strong>' + esc(entry[0]) + '</strong><br>' + esc(entry[1]) + '</span>';
         combosWrap.appendChild(item);
       });
 

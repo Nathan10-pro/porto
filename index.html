@@ -2,7 +2,8 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0a0908">
 <title>Nathan Putra Amrin — Portofolio</title>
 <meta name="description" content="Portofolio pribadi siswa Rekayasa Perangkat Lunak — proyek, keahlian, dan kontak.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,7 +35,6 @@
   </ul>
   <div class="nav-social">
     <a id="navGithub" href="https://github.com/Nathan10-pro" target="_blank" rel="noopener" aria-label="GitHub">GH</a>
-    <a id="navLinkedin" href="https://www.linkedin.com/in/nathan-putra-amrin-undefined-888733437/" target="_blank" rel="noopener" aria-label="LinkedIn">IN</a>
     <a id="navInstagram" href="https://www.instagram.com/nathan.mymy/" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
   </div>
 </nav>
@@ -63,16 +63,15 @@
 
       <div class="hero-card-wrap">
         <div class="hero-card tilt" id="heroCard">
-          <div class="card-tag"><span>Student Card</span><span>RPL-01</span></div>
+          <div class="card-tag"><span>Profil Singkat</span><span>RPL</span></div>
           <div class="card-avatar"><span class="initials" id="cardInitials">NA</span></div>
           <div class="card-name" id="cardName">Nathan Putra Amrin</div>
           <div class="card-role" id="cardRole">Front-End Developer</div>
-          <div class="card-stats">
-            <div class="card-stat-row"><span class="stat-label">HTML</span><div class="card-stat-track"><div class="card-stat-fill" data-fill="92"></div></div></div>
-            <div class="card-stat-row"><span class="stat-label">CSS</span><div class="card-stat-track"><div class="card-stat-fill" data-fill="88"></div></div></div>
-            <div class="card-stat-row"><span class="stat-label">JS</span><div class="card-stat-track"><div class="card-stat-fill" data-fill="78"></div></div></div>
+          <div class="card-learning">
+            <span>Sedang belajar</span>
+            <strong>HTML · CSS · JavaScript</strong>
           </div>
-          <div class="card-footer"><span id="cardLevel">LV. 12</span><span id="cardKelas">Kelas XII RPL</span></div>
+          <div class="card-footer"><span id="cardLevel">Kelas X</span><span id="cardKelas">Semester 1 · RPL</span></div>
         </div>
       </div>
     </div>
@@ -93,9 +92,9 @@
        ============================================================ -->
   <section class="cta-banner">
     <div class="cta-inner reveal">
-      <p class="section-label" style="justify-content:center;">Let's_Build</p>
-      <h2 class="cta-title">Punya Ide? <em>Mari Kolaborasi.</em></h2>
-      <p class="cta-sub">Terbuka untuk kerja praktik, proyek magang, kolaborasi lomba, atau sekadar diskusi seputar pengembangan web.</p>
+      <p class="section-label" style="justify-content:center;">Mari_Belajar_Bersama</p>
+      <h2 class="cta-title">Ada Ide atau Masukan? <em>Sampaikan.</em></h2>
+      <p class="cta-sub">Saya terbuka untuk diskusi, masukan, atau kolaborasi sederhana seputar project dan proses belajar.</p>
       <div class="hero-cta">
         <a href="#contact" class="btn btn-primary"><span class="shine"></span>Hubungi Saya</a>
       </div>
@@ -132,7 +131,7 @@
     <div class="section-head reveal">
       <p class="section-label">Tech_Stack</p>
       <h2 class="section-title">Ke<em>ahlian</em></h2>
-      <p class="section-sub">Kombinasi bahasa, framework, dan tools yang saya gunakan untuk membangun aplikasi web dari front-end sampai back-end.</p>
+      <p class="section-sub">Teknologi yang pernah saya gunakan atau sedang saya pelajari, beserta project yang menjadi tempat saya mencoba.</p>
     </div>
     <div class="skills-groups" id="skillsGroups"></div>
   </section>
@@ -144,7 +143,7 @@
     <div class="section-head reveal">
       <p class="section-label">Journey_Log</p>
       <h2 class="section-title">Pengalaman &amp; <em>Perjalanan</em></h2>
-      <p class="section-sub">Jejak belajar, organisasi, dan pencapaian sepanjang masa sekolah.</p>
+      <p class="section-sub">Catatan singkat tentang tahap belajar dan project yang sedang dikerjakan.</p>
     </div>
     <div class="timeline-wrap" id="timelineList"></div>
   </section>
@@ -156,7 +155,7 @@
     <div class="section-head reveal">
       <p class="section-label">Portfolio_Items</p>
       <h2 class="section-title">Pro<em>yek</em></h2>
-      <p class="section-sub">Beberapa proyek unggulan yang pernah saya kerjakan. Klik "Explore Item" untuk detail lengkap.</p>
+      <p class="section-sub">Project yang pernah saya buat atau sedang saya eksplorasi. Klik kartu untuk membaca prosesnya.</p>
       <a href="proyek.html" class="btn btn-ghost" style="margin-top:26px;"><span class="shine"></span>Lihat Semua Proyek</a>
     </div>
 
@@ -176,7 +175,6 @@
       <div class="modal-body">
         <div class="modal-thumbs" id="modalThumbs"></div>
         <div class="modal-display" id="modalDisplay">
-          <span class="project-rarity" id="modalRarity"></span>
           <span class="glyph" id="modalGlyph"></span>
           <button class="modal-zoom" id="modalZoom" aria-label="Perbesar">🔍</button>
         </div>
@@ -199,19 +197,6 @@
       </div>
     </div>
   </div>
-
-  <!-- ============================================================
-       TESTIMONIALS
-       ============================================================ -->
-  <section id="testimonials">
-    <div class="section-head reveal">
-      <p class="section-label">Kata_Mereka</p>
-      <h2 class="section-title">Testi<em>moni</em></h2>
-      <p class="section-sub">Beberapa kesan dari guru, rekan tim, dan pembimbing tempat saya belajar dan bekerja.</p>
-    </div>
-    <div class="testi-grid" id="testimonialGrid"></div>
-  </section>
-
 
   <!-- ============================================================
        CONTACT

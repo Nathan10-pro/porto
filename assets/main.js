@@ -16,7 +16,6 @@
     renderSkills(data.skills);
     renderTicker(data.techStack);
     renderTimeline(data.timeline);
-    renderTestimonials(data.testimonials);
     renderContact(data.profile);
 
     var featured = data.projects.slice(0, 6);
@@ -31,6 +30,8 @@
     document.getElementById("cardInitials").textContent = p.inisial;
     document.getElementById("cardName").textContent = p.nama;
     document.getElementById("cardRole").textContent = p.peran[0];
+    document.getElementById("cardLevel").textContent = p.levelKartu;
+    document.getElementById("cardKelas").textContent = p.kelas;
     document.title = p.nama + " — Portofolio RPL";
 
     document.getElementById("heroEyebrow").textContent = p.eyebrow;
@@ -40,12 +41,15 @@
     document.getElementById("heroName").innerHTML = esc(first) + (first ? "<br>" : "") + '<span class="stroke">' + esc(last) + "</span>";
     document.getElementById("heroDesc").textContent = p.deskripsiHero;
     document.getElementById("cvBtn").href = p.cvUrl;
+    document.getElementById("cvBtn").innerHTML = '<span class="shine"></span>GitHub Saya';
 
     document.getElementById("aboutP1").textContent = p.tentang1;
     document.getElementById("aboutP2").textContent = p.tentang2;
 
     document.getElementById("navGithub").href = p.githubUrl;
-    document.getElementById("navLinkedin").href = p.linkedinUrl;
+    var navLinkedin = document.getElementById("navLinkedin");
+    if (p.linkedinUrl) navLinkedin.href = p.linkedinUrl;
+    else navLinkedin.remove();
     document.getElementById("navInstagram").href = p.instagramUrl;
 
     document.getElementById("footerName").textContent = p.nama;
@@ -70,10 +74,9 @@
     });
     var html = order.map(function (cat, gi) {
       var items = groups[cat].map(function (s) {
-        return '<div class="skill-item"><div class="skill-top">' +
-          '<span class="skill-name">' + esc(s.nama) + '</span>' +
-          '<span class="skill-level">' + esc(s.label) + '</span></div>' +
-          '<div class="skill-track"><div class="skill-fill" data-level="' + s.level + '"></div></div></div>';
+        return '<div class="skill-item"><span class="skill-name">' + esc(s.nama) + '</span>' +
+          '<span class="skill-status">' + esc(s.status) + '</span>' +
+          '<span class="skill-project">Project: ' + esc(s.project) + '</span></div>';
       }).join("");
       return '<div class="skill-group reveal reveal-delay-' + ((gi % 4) + 1) + '">' +
         '<p class="skill-group-title">' + esc(cat) + '</p>' + items + '</div>';
@@ -98,21 +101,13 @@
     document.getElementById("timelineList").innerHTML = html;
   }
 
-  function renderTestimonials(list) {
-    var html = list.map(function (t, i) {
-      return '<div class="testi-card reveal reveal-delay-' + ((i % 4) + 1) + '">' +
-        '<p class="testi-quote">' + esc(t.isi) + '</p>' +
-        '<div class="testi-author"><span class="testi-name">' + esc(t.nama) + '</span>' +
-        '<span class="testi-role">' + esc(t.peran) + '</span></div></div>';
-    }).join("");
-    document.getElementById("testimonialGrid").innerHTML = html;
-  }
-
   function renderContact(p) {
     var email = document.getElementById("contactEmail");
     email.textContent = p.email; email.href = "mailto:" + p.email;
     var wa = document.getElementById("contactWhatsapp");
-    wa.textContent = p.whatsapp; wa.href = p.whatsappUrl;
+    var waItem = wa.closest(".contact-info-item");
+    if (p.whatsapp) { wa.textContent = p.whatsapp; wa.href = p.whatsappUrl; }
+    else if (waItem) waItem.remove();
     document.getElementById("contactLocation").textContent = p.lokasi;
     document.getElementById("contactSchool").textContent = p.sekolah;
   }
@@ -183,21 +178,6 @@
     }, { threshold: 0.4, rootMargin: "-10% 0px -10% 0px" });
     document.querySelectorAll("main section[id]").forEach(function (sec) { navObserver.observe(sec); });
 
-    /* Skill bars */
-    var skillObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.style.width = entry.target.dataset.level + "%";
-          skillObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.4 });
-    document.querySelectorAll(".skill-fill").forEach(function (el) { skillObserver.observe(el); });
-
-    /* Hero card mini stat bars (decorative, static HTML/CSS/JS bars) */
-    document.querySelectorAll(".card-stat-fill").forEach(function (el) {
-      setTimeout(function () { el.style.width = el.dataset.fill + "%"; }, 900);
-    });
 
     /* Counters */
     var counterObserver = new IntersectionObserver(function (entries) {

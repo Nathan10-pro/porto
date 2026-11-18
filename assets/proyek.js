@@ -11,8 +11,6 @@
     var p = data.profile;
     document.getElementById("navMark").textContent = p.inisial;
     document.getElementById("navGithub").href = p.githubUrl;
-    document.getElementById("navLinkedin").href = p.linkedinUrl;
-    document.getElementById("navInstagram").href = p.instagramUrl;
     document.getElementById("footerName").textContent = p.nama;
     document.getElementById("year").textContent = new Date().getFullYear();
     document.title = "Semua Proyek — " + p.nama;

@@ -2,7 +2,8 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0a0908">
 <title>Semua Proyek — Nathan Putra Amrin</title>
 <meta name="description" content="Daftar lengkap seluruh proyek yang telah dibuat.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -10,7 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
 </head>
-<body>
+<body id="top">
 
 <div class="preloader" id="preloader">
   <div class="preloader-mark">NA<span>.</span>DEV</div>
@@ -32,9 +33,8 @@
     <li><a href="index.html#contact" class="nav-link" data-sec="contact"><span class="idx">05</span><span class="label">Contact</span><span class="dot"></span></a></li>
   </ul>
   <div class="nav-social">
-    <a id="navGithub" href="#" target="_blank" rel="noopener" aria-label="GitHub">GH</a>
-    <a id="navLinkedin" href="#" target="_blank" rel="noopener" aria-label="LinkedIn">IN</a>
-    <a id="navInstagram" href="#" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+    <a id="navGithub" href="https://github.com/Nathan10-pro" target="_blank" rel="noopener" aria-label="GitHub">GH</a>
+    <a id="navInstagram" href="https://www.instagram.com/nathan.mymy/" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
   </div>
 </nav>
 
@@ -66,7 +66,6 @@
       <div class="modal-body">
         <div class="modal-thumbs" id="modalThumbs"></div>
         <div class="modal-display" id="modalDisplay">
-          <span class="project-rarity" id="modalRarity"></span>
           <span class="glyph" id="modalGlyph"></span>
           <button class="modal-zoom" id="modalZoom" aria-label="Perbesar">🔍</button>
         </div>
@@ -92,7 +91,7 @@
 
   <footer>
     <p>© <span id="year"></span> <span id="footerName">Nathan Putra Amrin</span>. Dibuat dengan HTML, CSS &amp; JavaScript.</p>
-    <a href="#" class="footer-top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Kembali ke Atas ↑</a>
+    <a href="#top" class="footer-top">Kembali ke Atas ↑</a>
   </footer>
 
 </main>
