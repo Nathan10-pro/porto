@@ -48,8 +48,10 @@
 
     document.getElementById("navGithub").href = p.githubUrl;
     var navLinkedin = document.getElementById("navLinkedin");
-    if (p.linkedinUrl) navLinkedin.href = p.linkedinUrl;
-    else navLinkedin.remove();
+    if (navLinkedin) {
+      if (p.linkedinUrl) navLinkedin.href = p.linkedinUrl;
+      else navLinkedin.remove();
+    }
     document.getElementById("navInstagram").href = p.instagramUrl;
 
     document.getElementById("footerName").textContent = p.nama;
