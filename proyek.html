@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Semua Proyek — Nathan Putra Amrin</title>
+<meta name="description" content="Daftar lengkap seluruh proyek yang telah dibuat.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div class="preloader" id="preloader">
+  <div class="preloader-mark">NA<span>.</span>DEV</div>
+  <div class="preloader-bar"><i></i></div>
+</div>
+
+<div class="grain"></div>
+
+<!-- ============================================================
+     SIDE NAV — sama seperti beranda; item "Projects" aktif di sini
+     ============================================================ -->
+<nav class="side-nav" id="sideNav" aria-label="Navigasi utama">
+  <div class="nav-mark" id="navMark">NA</div>
+  <ul class="nav-list">
+    <li><a href="index.html#home" class="nav-link" data-sec="home"><span class="idx">01</span><span class="label">Home</span><span class="dot"></span></a></li>
+    <li><a href="index.html#about" class="nav-link" data-sec="about"><span class="idx">02</span><span class="label">About</span><span class="dot"></span></a></li>
+    <li><a href="index.html#skills" class="nav-link" data-sec="skills"><span class="idx">03</span><span class="label">Skills</span><span class="dot"></span></a></li>
+    <li><a href="proyek.html" class="nav-link active" data-sec="projects"><span class="idx">04</span><span class="label">Projects</span><span class="dot"></span></a></li>
+    <li><a href="index.html#contact" class="nav-link" data-sec="contact"><span class="idx">05</span><span class="label">Contact</span><span class="dot"></span></a></li>
+  </ul>
+  <div class="nav-social">
+    <a id="navGithub" href="#" target="_blank" rel="noopener" aria-label="GitHub">GH</a>
+    <a id="navLinkedin" href="#" target="_blank" rel="noopener" aria-label="LinkedIn">IN</a>
+    <a id="navInstagram" href="#" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+  </div>
+</nav>
+
+<main>
+
+  <section class="page-hero">
+    <a href="index.html" class="back-home-link reveal">← Kembali ke Beranda</a>
+    <p class="section-label">Portfolio_Items / All</p>
+    <h1 class="page-hero-title reveal">Semua <em>Proyek</em></h1>
+    <p class="page-hero-sub reveal reveal-delay-1">Kumpulan lengkap proyek yang pernah saya kerjakan — mulai dari latihan pribadi, tugas sekolah, sampai proyek magang. Klik salah satu kartu untuk melihat detailnya.</p>
+    <span class="page-hero-count reveal reveal-delay-2" id="pageCount">Menampilkan <b>0</b> proyek</span>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="filter-row reveal" id="filterRow"></div>
+    <div class="project-grid" id="allProjectsGrid"></div>
+  </section>
+
+  <!-- ============================================================
+       PROJECT DETAIL MODAL — sama seperti di beranda
+       ============================================================ -->
+  <div class="modal-overlay" id="projectModal" aria-hidden="true">
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" aria-label="Tutup">✕</button>
+      <div class="modal-banner">
+        <p class="modal-eyebrow">Project Introduction</p>
+        <h3 class="modal-heading">Detail Proyek</h3>
+      </div>
+      <div class="modal-body">
+        <div class="modal-thumbs" id="modalThumbs"></div>
+        <div class="modal-display" id="modalDisplay">
+          <span class="project-rarity" id="modalRarity"></span>
+          <span class="glyph" id="modalGlyph"></span>
+          <button class="modal-zoom" id="modalZoom" aria-label="Perbesar">🔍</button>
+        </div>
+        <div class="modal-info">
+          <p class="m-category" id="modalCategory">Web Application</p>
+          <h4 class="m-title" id="modalTitle"></h4>
+          <p class="m-desc" id="modalDesc"></p>
+          <div class="project-tags" id="modalTags"></div>
+          <div class="project-links" id="modalLinks"></div>
+        </div>
+      </div>
+      <div class="modal-combos">
+        <p class="combos-label">Fitur Utama</p>
+        <div class="combo-grid" id="modalCombos"></div>
+      </div>
+      <div class="modal-nav">
+        <button class="nav-arrow" id="modalPrev" aria-label="Proyek sebelumnya">‹</button>
+        <span class="nav-counter" id="modalCounter">1 / 6</span>
+        <button class="nav-arrow" id="modalNext" aria-label="Proyek berikutnya">›</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© <span id="year"></span> <span id="footerName">Nathan Putra Amrin</span>. Dibuat dengan HTML, CSS &amp; JavaScript.</p>
+    <a href="#" class="footer-top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Kembali ke Atas ↑</a>
+  </footer>
+
+</main>
+
+<!-- Tombol Ganti Tema -->
+<button class="theme-switch-btn" id="themeSwitchBtn" title="Ganti Tema"></button>
+
+<script src="assets/site-data.js"></script>
+<script src="assets/projects-ui.js"></script>
+<script src="assets/proyek.js"></script>
+</body>
+</html>
